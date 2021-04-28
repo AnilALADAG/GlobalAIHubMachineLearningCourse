@@ -1,0 +1,73 @@
+Homework 1
+1) Makine Öğrenimini nasıl tanımlarsınız?
+
+- Matematiksel ve istatiksel işlemlerden faydalanarak veriler üzerinden çıkarımlar yapılır. Yapılan bu çıkarımlar ile tahminlerde bulunan sistemlerin bilgisayar ile modellenmesine  makine öğrenmesi denir. Buna ek olarak yapay zekanın bir alt dalıdır.
+
+2) Denetimli ve Denetimsiz Öğrenim arasındaki farklar nelerdir? Bunların her biri için örnek 3 algoritma yazınız ve nasıl çalıştıkları hakkında kısaca bilgi veriniz.
+
+- Denetimli öğrenme tekniği
+    +Çıktı veri desenlerinin sistem tarafından bilindiği etiketli verilerle ilgilenir.
+        +Daha az karmaşıktır.
+            +Sonuç daha doğru ve güvenilirdir.
+                    +Sınıflandırma ve regresyon bu yöntemle çözülen problemlerdir.
+                    
+Önek algoritmalar: 
+1- Doğrusal Regresyon, y = ax + b şeklinde bir çizgi olarak gösterilir. x değişkeni girdileri
+y değişkeni ise çıktıları temsil eder. Nokta grafikte verideki ilişkiyi özetlemek için bir doğru kullabiliriz. Elde edilen sonuç süreklidir
+2- Lojistik Regresyon bağımlı değişken kategorik veya ikili olduğunda kullanılmaya uygundur. Bir bağımlı ikili değişken ile nominal, sıralı veya oran seviyesi değişkenleri olabilen bir veya daha fazla bağımsız değişken arasındaki ilişkiyi belirtir. Elde edilen sonuç ayrıktır.
+3- Rastgele Orman algoritmasının en önemli avantajlarından birisi hem sınıflandırma hem de regresyon problemlerinde kullanılabilir olmasıdır. Kök düğümü bulma ve düğümleri bölme rastgele çalışır.
+-Denetimsiz öğrenme tekniği
+    +Çıktının yalnızca algıların toplanmasına dayandığı etiketsiz verilerle çalışır.
+        +Daha karmaşıktır.
+            +Ilımlı fakat güvenilir sonuçlar verir.
+                +Kümeleme ve ilişkisel kural madenciliği sorunlarını da içerir
+                
+Örnek algoritmalar:
+1- k-Means kümeleme algoritması veriyi girilen k parametresine göre kümeye böler yani rastgele k tane merkez seçer verilerin merkeze uzaklıklarını hesaplar ve veriyi en yakın merkeze göre kümeye atar. Amaç küme içi benzerlikleri maksimum yapmaya çalışırken kümler arası benzerlikleri minumum yapmaya çalışmasıdır.
+2- Hiyerarşik kümeleme iki farklı varyasyonu vardır bunlar Agglomerative ( Parçadan bütüne ) ve Divisive ( Bütünden parçaya )dır.Agglomerative ( Parçadan bütüne ) da N tane eleman varsa N tane küme oluşur. Daha sonra birbirine mesafe olarak yakın olan kümeler birleşerek yeni bir küme oluşturur. Bu durum sistem kararlı oluncaya kadar devam eder.
+3- Apriori Algoritması birliktelik kurallarının algoritmalarından biridir. Örnek bir ürünü alan kullanıcıların yanında aldıkları ürünlerin yoğunluğuna göre diğer kullanıcılara ürün tavsiye edilmesi gibi.
+
+
+3) Eğitim, test ve doğrulama seti nedir ve neden onları kullanmamız gerekir?
+
+- Modelleme veya tahminlemede bulunmadan önce veri setimizi bir eğitim ve test setine ayırmalıyız. Böylelikle eğitim seti üzerinde modelimizi eğitir ve test seti üzerinde tahminler yapabiliriz. Doğrulama seti ise modelin performansını değerlendirmek için kullanılan alt bir veri setidir. Bu veri seti hangi modelin iyi olduğunu belirlemek ve modeller için en uygun parametreleri ayarlamak için bir test platformu sağlar.
+
+4) Temel ön işleme (pre-processing) adımları nelerdir? Bu adımları ayrıntılı olarak açıklayınız ve verilerimizi neden ön işleme sokmamız gerektiği hakkında bilgi veriniz.
+
+- 1.Duplicate olmuş gözlemler incelenir, varsa silinir.
+  2.Veri setindeki hedef değişkendeki değerlerin dağılımlarına ve frekanslarına bakılır.
+  3.Eksik verilere müdahale edilir. Öncelikle verinin eksik olmasının bir başka değişkenle ilişkili olup olmadığı(rassal) incelenir. Rassal ise medyan ya da mod ile doldurulabilir. Rassal değil ise algoritmalardan faydalanır ya da veri seti büyük ise silinmesi tercih edilebilir.
+  4.Aykırı verilere müdahale edilir.Bazı algoritmalar aykırı verilere karşı hassastır ve bu durum modelin başarısını olumsuz yönde etkileyebileceği için aykırı verilerin veri setinden atılması uygun olacaktır. Aykırı verileri tespit etmede ve onları veri setinden atmada en sık kullanılan yöntemler 3-sigma, IQR metodu ve IsolationForest algoritması olarak gösterilebilir.
+  5.Kategorik değerler dönüştürürülür. Kategorik verilerle çalışmak, hesaplama ve bilgisayarın bu değerleri anlaması açısından zorluklar içerir. Özellikle makine öğrenmesi modellerinin doğru çalışabilmesi için kategorik verileri, sayısal karşılıklarına  dönüştürmemiz gerekmektedir. 
+  6.Ölçeklendirme işlemleri yapılır. Burada Standardizasyon ve Normalizasyon yöntemlerinden bahsedebiliriz. Standardizasyon yöntemi, normal dağılım gösteren verilere uygulanarak onları ortalaması 0 ve standart sapması 1 olan bir biçime dönüştürür. Normalizasyon yöntemi, genelde normal dağılım göstermeyen verilerde değerlerin 0-1 aralığına sıkıştırılması için kullanılmaktadır. Bu yöntemler nümerik değişkenlerde uygulanırlar.değiştirilir.
+ 7.Train, Test ve Validation verilerinin ayrıştırılması. Makine Öğrenmesi modelleri oluşturulurken elimizdeki veri setinin bir kısmıyla modeli eğitip bir kısmıyla da modelin başarısını sınamamız gerekmektedir. En uygun ayırma miktarı Train: %60, Test: %20, Validation: %20 olarak düşünülebilir.
+ 
+ Bunları kısaca elimizdeki veri setini anlamlı hale getirdikten sonra modelin başarısını optimum düzeye çıkarmak için kullanırız. Temel ön işleme bir makine öğrenmesi projesinde en çok vakit harcanan süreç olup, modelin başarısını kritik şekilde etkileyebilecek müdahaleleri içermektedir.
+ 
+5) Sürekli (continuous) ve ayrık (discrete) değişkenleri nasıl belirleyebilir ve analiz edebilirsiniz?
+
+-Discrete değişkenler sabit ve kesin değerler alırlar ve belli bir aralıkları vardır. Discrete verileri incelerken kendi içindeki sınıfların arasındaki frekans dağılımlarına, hedef değişkene bağlı frekans dağılımlarına bakılabilir.
+Continus değişkenler ise discrete verilerin aksine herhangi bir değere sahip olabilirler. Sonsuz bir aralıkları vardır. Continous verileri analiz ederken histogram, saçılım grafikleri, boxplot grafikleri kullanılarak veri görselleştirilebilir.
+ 
+6) Makine öğrenimi içinde kullanılan temel istatiksel kavramlar nelerdir?
+
+-Aritmetik ortalama, median, mod, standart sapma, min-max değeri, frekans,IQR ve o sınıftaki veri sayısı.
+ 
+7) Aşağıda verilen grafiği analiz ediniz. (Grafik ve değişken türü nedir, dağılımı nedir ve hangi ön işlemlerden geçmelidir?)
+
+-Sürekli değişkene ait veri setindeki gözlemlerin yoğunluğunu gösteren bir grafik bulunmaktadır. Nerdeyse normal bir dağılım gözüküyor. Duplicate veri olup olmadığı kontrol edilmeli çünkü yoğunluğu etkileyebilir. Çeyreklere bakılarak aykırı veri olabileceğini saptadıktan sonra aykırı verilere bakılmalı 0.20 ile -0.10 lar incelebilir. Standardizasyon yöntemi kullanılarak ortalaması 0 ve standart sapması 1 olan bir biçime dönüştürmek grafiği daha iyi okumamıza neden olabilir.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
